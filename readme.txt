@@ -57,17 +57,28 @@ When tracking is enabled, page view and usage information is sent to SentinelPro
 This plugin connects to the following external service:
 
 ### SentinelPro Tracking Service
-- **Service**: SentinelPro Tracking Service (`collector.sentinelpro.com`)
+- **Service**: SentinelPro Tracking Service
+- **Hostname**: `collector.sentinelpro.com` (strictly allowlisted)
 - **Purpose**: Loads the official SentinelPro tracking script
-- **Data Sent**: Account name, property ID, and opt-in usage flags via inline configuration
-- **When**: On every page load where tracking is enabled
+- **Data Sent**: Account name, property ID, page view data, and anonymised usage information. No personally identifiable information (PII) such as user passwords, email addresses, or personal data is transmitted by default.
+- **Optional Data**: If you enable "Share Usage Metrics with SentinelPro", additional anonymised plugin usage statistics may be sent to help improve the service.
+- **When**: On every front-end page load where tracking is enabled
+- **Data Retention**: Handled by SentinelPro according to their privacy policy
 - **Terms of Service**: https://sentinelpro.ai/terms
 - **Privacy Policy**: https://sentinelpro.ai/privacy
 
+An admin notice is displayed on the plugin settings page when tracking is enabled to inform administrators of this third-party connection.
+
 == Privacy ==
 
-Valserv Analytics for SentinelPro adds the following note to your site privacy policy:
+Valserv Analytics for SentinelPro automatically adds detailed privacy policy content to your WordPress privacy policy page.
 
-> This site uses Valserv Analytics for SentinelPro to load the SentinelPro tracking script. When enabled, page views, anonymised usage information, and the configured property ID are transmitted to SentinelPro. No additional personal data is stored by this plugin.
+**Summary:**
+- The plugin connects to `collector.sentinelpro.com` when front-end tracking is enabled
+- Data sent includes: page view data, anonymised usage information, configured property ID, and account name
+- No PII (passwords, emails, personal data) is transmitted by default
+- If "Share Usage Metrics" is enabled, additional anonymised statistics may be sent
+- Data retention is managed by SentinelPro per their privacy policy
+- Administrators can disable tracking at any time from **Dashboard → Valserv Analytics**
 
-You can disable tracking at any time from **Dashboard → Valserv Analytics**.
+The plugin does not store any tracking data locally on your WordPress site.

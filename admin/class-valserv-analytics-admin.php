@@ -157,7 +157,7 @@ class Valserv_Analytics_Admin {
      */
     public function render_settings_section(): void {
         echo '<p>' . esc_html__( 'Enter the credentials provided by SentinelPro to connect your site. The plugin sends page view and basic usage information to SentinelPro when tracking is enabled.', 'valserv-analytics-for-sentinelpro' ) . '</p>';
-        echo '<p class="description">' . esc_html__( 'Note: The connection shares your site URL, the selected property ID, anonymised usage metrics, and site administrator email address with SentinelPro for support purposes.', 'valserv-analytics-for-sentinelpro' ) . '</p>';
+        echo '<p class="description">' . esc_html__( 'Note: The tracking script sends your configured account name, property ID, page view data, and anonymised usage metrics to collector.sentinelpro.com. No personal data such as passwords or email addresses is transmitted.', 'valserv-analytics-for-sentinelpro' ) . '</p>';
     }
 
     /**
