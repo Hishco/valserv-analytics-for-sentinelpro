@@ -59,7 +59,7 @@ class Valserv_Analytics_Tracker {
         ];
 
         $handle   = 'valserv-sentinelpro-tracker';
-        $endpoint = 'https://cdn.sentinelpro.io/v1/tracker.js';
+        $endpoint = 'https://cdn.sentinelpro.com/v1/tracker.js';
 
         wp_enqueue_script( $handle, $endpoint, [], VALSERV_ANALYTICS_VERSION, true );
         wp_add_inline_script( $handle, 'window.valservSentinelPro=' . wp_json_encode( $config ) . ';', 'before' );
