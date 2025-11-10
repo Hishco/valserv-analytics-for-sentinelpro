@@ -122,9 +122,7 @@ This plugin has been audited and refactored to meet **all** WordPress.org Plugin
 - **Requirement**: Strict allowlist for remote requests
 - **Status**: ✅ **COMPLIANT**
 - **Allowed Hosts**:
-  - `api.sentinelpro.io`
-  - `cdn.sentinelpro.io`
-  - `analytics.sentinelpro.com`
+  - `cdn.sentinelpro.com`
 
 #### Implementation
 ```php
@@ -132,8 +130,8 @@ add_filter( 'http_request_host_is_external', [ $this, 'allow_sentinelpro_hosts' 
 
 public function allow_sentinelpro_hosts( bool $is_external, string $host, string $url ): bool {
     $allowed_hosts = [
-        'api.sentinelpro.io',
-        'cdn.sentinelpro.io',
+        'api.sentinelpro.com',
+        'cdn.sentinelpro.com',
         'analytics.sentinelpro.com',
     ];
     
@@ -147,7 +145,7 @@ public function allow_sentinelpro_hosts( bool $is_external, string $host, string
 
 #### Script URL Update
 - **Previous**: `https://collector.sentinelpro.com/v1/tracker.js`
-- **Updated**: `https://cdn.sentinelpro.io/v1/tracker.js`
+- **Updated**: `https://cdn.sentinelpro.com/v1/tracker.js`
 - **Status**: ✅ Now using allowlisted host
 
 #### PHP Remote Requests
@@ -217,12 +215,12 @@ if ( ! defined( 'WP_UNINSTALL_PLUGIN' ) ) { exit; }
 - **Requires PHP**: 7.4 ✅
 
 #### External Services Documentation
-- **Services Listed**: api.sentinelpro.io, cdn.sentinelpro.io, analytics.sentinelpro.com ✅
+- **Services Listed**: api.sentinelpro.com, cdn.sentinelpro.com, analytics.sentinelpro.com ✅
 - **Purpose**: Clearly stated ✅
 - **Data Sent**: Fully disclosed ✅
 - **Data Use**: Explained ✅
-- **Terms**: https://sentinelpro.ai/terms ✅
-- **Privacy**: https://sentinelpro.ai/privacy ✅
+- **Terms**: https://sentinelpro.com/terms ✅
+- **Privacy**: https://sentinelpro.com/privacy ✅
 
 #### Privacy Section
 - **Data Collection**: Fully disclosed ✅
@@ -296,7 +294,7 @@ All changes are:
 ### Functional Testing
 1. ✅ Settings page loads with privacy disclaimer
 2. ✅ Privacy policy content appears in Privacy Policy editor
-3. ✅ Tracking script loads from `cdn.sentinelpro.io`
+3. ✅ Tracking script loads from `cdn.sentinelpro.com`
 4. ✅ All settings save correctly via Settings API
 5. ✅ Non-admin users cannot access settings
 
@@ -326,7 +324,7 @@ All changes are:
 - Updated privacy policy content to exact requirements
 - Added privacy disclaimer to settings screen
 - Implemented http_request_host_is_external filter
-- Updated tracker URL to cdn.sentinelpro.io
+- Updated tracker URL to cdn.sentinelpro.com
 
 ### Commit 2: Add .gitignore and update phpcs.xml for WP 5.0 minimum
 - Created .gitignore to exclude vendor/, composer, IDE, OS files
