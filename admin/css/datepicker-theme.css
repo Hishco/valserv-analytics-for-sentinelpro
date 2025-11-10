@@ -1,0 +1,334 @@
+/* 🌐 Base container styling */
+.daterangepicker {
+  display: flex;
+  flex-wrap: nowrap;
+  align-items: flex-start;
+  min-width: 600px; /* ✅ adjusted to fit modal */
+  height: auto !important;
+  max-height: fit-content !important;
+  overflow: visible !important;
+  font-family: "Inter", sans-serif;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  color: #333;
+  padding-bottom: 0 !important;
+}
+
+
+
+/* 📅 Calendar panels */
+.daterangepicker .drp-calendar {
+  margin-bottom: 0 !important;
+  padding-bottom: 0 !important;
+}
+
+/* Hide the (unused) time selection row */
+.daterangepicker .calendar-time {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+
+/* 📊 Calendar appearance */
+.daterangepicker .calendar-table {
+  border-collapse: separate;
+  border-spacing: 4px;
+}
+
+/* 📥 Apply/Cancel button area */
+.daterangepicker .drp-buttons {
+  margin-top: 0 !important;
+  padding-top: 4px !important;
+  text-align: right;
+}
+
+/* 📁 Sidebar (ranges + compare toggle) */
+.daterangepicker .ranges {
+  max-height: 360px;
+  overflow-y: auto;
+  padding-right: 6px;
+  width: 260px;        /* Increased width from 200px to 260px */
+  flex-shrink: 0;      /* ❗ Prevent it from being squished by calendars */
+}
+
+@media (max-width: 1024px) {
+  .daterangepicker {
+    min-width: 100%;
+    flex-direction: column;
+  }
+
+  .daterangepicker .ranges {
+    width: 100%;
+    max-height: none;
+    overflow-y: visible;
+    margin-bottom: 16px;
+  }
+}
+
+
+.daterangepicker .ranges > ul {
+  margin-bottom: 0;
+}
+
+/* 🟦 Selected date styles */
+.daterangepicker td.in-range {
+  background-color: #cce6f9 !important;
+  color: #000;
+  border-radius: 0;
+  font-weight: normal;
+}
+
+.daterangepicker td.start-date,
+.daterangepicker td.end-date {
+  background-color: #2a8dd4 !important;
+  color: #fff !important;
+  border-radius: 4px !important;
+}
+
+/* 💫 Hover effect */
+.daterangepicker td.available:hover {
+  background-color: #d9ecfc !important;
+}
+
+/* Compare range background */
+td.compare-range {
+  background-color: #ffdb99 !important;  /* Light orange */
+  color: #000;
+}
+
+/* Start of compare range */
+td.compare-start-date {
+  background-color: #ff9900 !important;  /* Darker orange */
+  color: #fff !important;
+  border-radius: 4px !important;
+  font-weight: bold;
+}
+
+/* End of compare range */
+td.compare-end-date {
+  background-color: #ff9900 !important;  /* Darker orange */
+  color: #fff !important;
+  border-radius: 4px !important;
+  font-weight: bold;
+}
+
+/* Preview hover (if desired) */
+td.compare-preview {
+  background-color: #fdf5dc !important;
+  outline: 1px dashed #ffa500;
+  cursor: pointer;
+}
+
+
+/* Override for active states */
+td.active.start-date,
+td.active.end-date,
+td.in-range {
+  background-color: #619eff !important;
+}
+
+/* ✅ Button states */
+.daterangepicker .applyBtn {
+  background-color: #1a73e8;
+  border-color: #1a73e8;
+  font-weight: 600;
+}
+
+.daterangepicker .applyBtn.disabled {
+  background-color: #ccc !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+/* 🧩 Custom label */
+.custom-calendar-label {
+  font-size: 13px;
+  color: #333;
+}
+
+/* 📊 Compare toggle & options */
+.compare-switch {
+  display: inline-flex;
+  align-items: center;
+  margin: 0;
+}
+
+.compare-switch .label-text {
+  display: flex;
+  align-items: center;
+  height: 20px;
+}
+
+.compare-switch input[type="checkbox"] {
+  opacity: 0;
+  width: 0;
+  height: 0;
+  position: absolute;
+}
+
+.compare-switch .slider {
+  position: relative;
+  display: inline-block;
+  width: 38px;
+  height: 20px;
+  background-color: #ccc;
+  border-radius: 20px;
+  transition: background-color 0.3s ease;
+  margin-left: 12px;
+}
+
+.compare-switch .slider::before {
+  content: "";
+  position: absolute;
+  height: 16px;
+  width: 16px;
+  top: 2px;
+  left: 2px;
+  background-color: white;
+  border-radius: 50%;
+  transition: transform 0.3s ease;
+}
+
+.compare-switch input[type="checkbox"]:checked + .slider {
+  background-color: #1a73e8;
+}
+
+.compare-switch input[type="checkbox"]:checked + .slider::before {
+  transform: translateX(18px);
+}
+
+#compare-toggle-wrapper {
+  margin-top: 12px;
+  padding: 12px;
+  border-top: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 12px;
+  max-width: 240px;
+  width: 100%;
+}
+
+
+#compare-options {
+  margin-top: 10px;
+  border-top: 1px solid #eee;
+  padding-top: 8px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  width: 100%;
+}
+
+#compare-options-ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+#compare-options-ul li {
+  background: #fff;
+  border: none;
+  border-radius: 0;
+  margin: 0;
+  padding: 7px 12px;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.2s, color 0.2s;
+  text-align: left;
+  box-sizing: border-box;
+  line-height: 1.4;
+  position: relative;
+}
+#compare-options-ul li:hover,
+#compare-options-ul li:focus {
+  background: #f5f5f5;
+  color: #1976d2;
+}
+#compare-options-ul li .compare-option.active,
+#compare-options-ul li.active,
+#compare-options-ul li .compare-option.active:focus {
+  background: #007bff;
+  color: #fff;
+  border-radius: 2px;
+}
+#compare-options-ul li .compare-option {
+  background: none;
+  border: none;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+  width: 100%;
+  text-align: left;
+  cursor: pointer;
+  display: block;
+}
+
+
+/* 🔒 Hidden state */
+.hidden {
+  display: none !important;
+}
+
+/* 🧼 Eliminate calendar padding that creates white space */
+.daterangepicker .drp-calendar.right,
+.daterangepicker .drp-calendar.left {
+  padding-bottom: 0 !important;
+  margin-bottom: 0 !important;
+}
+
+/* 🚫 Prevent invisible calendar-time from reserving space */
+.daterangepicker .calendar-time {
+  display: none !important;
+  height: 0 !important;
+  margin: 0 !important;
+  padding: 0 !important;
+  line-height: 0 !important;
+  overflow: hidden !important;
+}
+
+/* 🎯 Compact the button bar */
+.daterangepicker .drp-buttons {
+  margin: 0 !important;
+  padding: 6px 8px !important;
+  height: auto !important;
+  line-height: 1 !important;
+  border-top: 1px solid #eee;
+}
+
+/* 🧱 Ensure calendars and ranges are height-aligned */
+.daterangepicker .drp-calendar,
+.daterangepicker .ranges {
+  flex-shrink: 0;
+}
+
+.drp-calendar.bottom td.available {
+  background-color: #e6f2ff !important;
+}
+
+.compare-highlight {
+  background-color: #cfe8ff !important;
+  border-radius: 0 !important;
+}
+
+.compare-highlight {
+  background-color: #ffdb99 !important; /* or whatever orange shade you prefer */
+  color: #fff;
+}
+
+#compare-toggle-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  gap: 0;
+}
+
+#compare-toggle-container > span {
+  margin-left: 8px;
+}
