@@ -58,8 +58,8 @@ This plugin connects to the following external services:
 
 ### SentinelPro Analytics Services
 - **Services**: 
-  - `api.sentinelpro.io` - API endpoints for analytics data
-  - `cdn.sentinelpro.io` - Content delivery for tracking scripts
+  - `api.sentinelpro.com` - API endpoints for analytics data
+  - `cdn.sentinelpro.com` - Content delivery for tracking scripts
   - `analytics.sentinelpro.com` - Analytics dashboard and aggregated metrics
 - **Purpose**: Loads the SentinelPro tracking script and fetches aggregated analytics metrics
 - **Data Sent**: 
@@ -68,8 +68,8 @@ This plugin connects to the following external services:
   - No names, emails, passwords, or WordPress user IDs are collected or transmitted by this plugin
 - **When**: On every page load where tracking is enabled
 - **Data Use**: Data is used to generate aggregated, privacy-focused analytics dashboards. IP addresses and user agents are received as part of standard HTTP requests and are not used to identify individuals.
-- **Terms of Service**: https://sentinelpro.ai/terms
-- **Privacy Policy**: https://sentinelpro.ai/privacy
+- **Terms of Service**: https://sentinelpro.com/terms
+- **Privacy Policy**: https://sentinelpro.com/privacy
 
 == Privacy ==
 
