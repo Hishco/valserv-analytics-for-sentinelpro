@@ -86,8 +86,8 @@ class Valserv_Analytics {
      */
     public function allow_sentinelpro_hosts( bool $is_external, string $host, string $url ): bool {
         $allowed_hosts = [
-            'api.sentinelpro.io',
-            'cdn.sentinelpro.io',
+            'api.sentinelpro.com',
+            'cdn.sentinelpro.com',
             'analytics.sentinelpro.com',
         ];
 
