@@ -6,8 +6,8 @@ Description: Connect your site to SentinelPro Analytics with a lightweight, priv
 Tags: analytics, tracking, statistics, sentinelpro, privacy-first
 Author: Valserv Inc
 Author URI: https://valserv.com/
-Requires at least: 5.9
-Tested up to: 6.8
+Requires at least: 5.0
+Tested up to: 6.6.2
 Stable tag: 2.0.0
 Version: 2.0.0
 Requires PHP: 7.4
@@ -54,20 +54,38 @@ When tracking is enabled, page view and usage information is sent to SentinelPro
 
 == External Services ==
 
-This plugin connects to the following external service:
+This plugin connects to the following external services:
 
-### SentinelPro Tracking Service
-- **Service**: SentinelPro Tracking Service (`collector.sentinelpro.com`)
-- **Purpose**: Loads the official SentinelPro tracking script
-- **Data Sent**: Account name, property ID, and opt-in usage flags via inline configuration
+### SentinelPro Analytics Services
+- **Services**: 
+  - `api.sentinelpro.io` - API endpoints for analytics data
+  - `cdn.sentinelpro.io` - Content delivery for tracking scripts
+  - `analytics.sentinelpro.com` - Analytics dashboard and aggregated metrics
+- **Purpose**: Loads the SentinelPro tracking script and fetches aggregated analytics metrics
+- **Data Sent**: 
+  - Page URL, referrer, and standard request metadata (IP address and user agent provided by the browser)
+  - Event data configured by you (e.g., page views, scroll depth, property ID/account name)
+  - No names, emails, passwords, or WordPress user IDs are collected or transmitted by this plugin
 - **When**: On every page load where tracking is enabled
+- **Data Use**: Data is used to generate aggregated, privacy-focused analytics dashboards. IP addresses and user agents are received as part of standard HTTP requests and are not used to identify individuals.
 - **Terms of Service**: https://sentinelpro.ai/terms
 - **Privacy Policy**: https://sentinelpro.ai/privacy
 
 == Privacy ==
 
-Valserv Analytics for SentinelPro adds the following note to your site privacy policy:
+Valserv Analytics for SentinelPro adds privacy policy content to your site describing data collection and usage:
 
-> This site uses Valserv Analytics for SentinelPro to load the SentinelPro tracking script. When enabled, page views, anonymised usage information, and the configured property ID are transmitted to SentinelPro. No additional personal data is stored by this plugin.
+**Data Collection:**
+- This plugin connects your site to SentinelPro Analytics to load a tracking script and fetch aggregated metrics.
+- Data sent to SentinelPro includes: Page URL, referrer, and standard request metadata (IP address and user agent provided by the browser); Event data you configure (e.g., page views, scroll depth, property ID/account name).
+- No names, emails, passwords, or WordPress user IDs are collected or transmitted by this plugin.
 
-You can disable tracking at any time from **Dashboard → Valserv Analytics**.
+**Data Use:**
+- Data is used to generate aggregated, privacy-focused analytics dashboards.
+- IP addresses and user agents are received as part of standard HTTP requests and are not used to identify individuals.
+
+**Controls:**
+- Tracking can be disabled at any time in the plugin settings at **Dashboard → Valserv Analytics**.
+- You can exclude logged-in users from tracking.
+
+For more information, see SentinelPro's documentation and policies on your SentinelPro account site.
