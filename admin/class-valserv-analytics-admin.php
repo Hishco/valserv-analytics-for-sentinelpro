@@ -35,6 +35,7 @@ class Valserv_Analytics_Admin {
         add_action( 'admin_menu', [ $this, 'add_menu' ] );
         add_action( 'admin_init', [ $this, 'register_settings' ] );
         add_action( 'admin_enqueue_scripts', [ $this, 'enqueue_assets' ] );
+        add_action( 'admin_notices', [ $this, 'show_third_party_notice' ] );
     }
 
     /**
@@ -232,6 +233,41 @@ class Valserv_Analytics_Admin {
             checked( $share_usage, true, false ),
             esc_html__( 'Allow anonymised plugin usage data to be sent to SentinelPro to help improve the service.', 'valserv-analytics-for-sentinelpro' )
         );
+    }
+
+    /**
+     * Displays an admin notice about third-party service connections.
+     */
+    public function show_third_party_notice(): void {
+        $screen = get_current_screen();
+        if ( ! $screen || 'toplevel_page_vasp' !== $screen->id ) {
+            return;
+        }
+
+        $settings = Valserv_Analytics_Settings::get_settings();
+        if ( empty( $settings['enable_tracking'] ) ) {
+            return;
+        }
+
+        ?>
+        <div class="notice notice-info">
+            <p>
+                <strong><?php esc_html_e( 'Third-Party Service Connection:', 'valserv-analytics-for-sentinelpro' ); ?></strong>
+                <?php
+                echo esc_html(
+                    sprintf(
+                        /* translators: %s: hostname of the third-party service */
+                        __( 'This plugin connects to %s to load the SentinelPro tracking script when front-end tracking is enabled.', 'valserv-analytics-for-sentinelpro' ),
+                        'collector.sentinelpro.com'
+                    )
+                );
+                ?>
+                <a href="https://sentinelpro.ai/privacy" target="_blank" rel="noopener noreferrer">
+                    <?php esc_html_e( 'View Privacy Policy', 'valserv-analytics-for-sentinelpro' ); ?>
+                </a>
+            </p>
+        </div>
+        <?php
     }
 
     /**
