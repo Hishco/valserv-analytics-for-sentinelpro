@@ -1,0 +1,8 @@
+/*
+ * Admin styles for Valserv Analytics for SentinelPro.
+ */
+.valserv-api-key {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}

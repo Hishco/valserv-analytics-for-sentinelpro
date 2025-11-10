@@ -1,28 +1,15 @@
 <?xml version="1.0"?>
-<ruleset name="SentinelPro Analytics">
-    <description>WordPress coding standards for SentinelPro Analytics plugin</description>
-    
-    <!-- Include WordPress coding standards -->
-    <rule ref="WordPress">
-        <!-- Suppress false positive database prepared statement errors -->
-        <exclude name="WordPress.DB.PreparedSQL.NotPrepared"/>
-        <exclude name="WordPress.DB.PreparedSQL.InterpolatedNotPrepared"/>
-        
-        <!-- Suppress debug code warnings for development -->
-        <exclude name="WordPress.PHP.DevelopmentFunctions.error_log_error_log"/>
-        <exclude name="WordPress.PHP.DevelopmentFunctions.error_log_print_r"/>
-        
-        <!-- Suppress slow query warnings for analytics -->
-        <exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_query"/>
-        <exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_value"/>
-        <exclude name="WordPress.DB.SlowDBQuery.slow_db_query_meta_key"/>
-    </rule>
-    
-    <!-- Files to check -->
+<ruleset name="Valserv Analytics for SentinelPro">
+    <description>WordPress Coding Standards configuration for Valserv Analytics for SentinelPro.</description>
+
+    <rule ref="WordPress-Extra" />
+    <rule ref="WordPress-Docs" />
+
+    <config name="minimum_supported_wp_version" value="5.9" />
+
     <file>.</file>
-    
-    <!-- Exclude vendor and node_modules -->
+
     <exclude-pattern>*/vendor/*</exclude-pattern>
     <exclude-pattern>*/node_modules/*</exclude-pattern>
-    <exclude-pattern>*/tests/*</exclude-pattern>
+    <exclude-pattern>*/assets/external-libs/*</exclude-pattern>
 </ruleset>
