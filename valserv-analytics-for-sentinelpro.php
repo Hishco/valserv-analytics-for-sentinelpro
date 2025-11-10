@@ -9,10 +9,12 @@
  * License URI:       https://www.gnu.org/licenses/gpl-2.0.html
  * Text Domain:       valserv-analytics-for-sentinelpro
  * Domain Path:       /languages
+ *
+ * @package ValservAnalyticsForSentinelPro
  */
 
 if ( ! defined( 'ABSPATH' ) ) {
-    exit;
+	exit;
 }
 
 define( 'VALSERV_ANALYTICS_VERSION', '2.0.0' );
@@ -29,7 +31,7 @@ require_once VALSERV_ANALYTICS_PLUGIN_DIR . 'includes/class-valserv-analytics.ph
  * Handles plugin activation.
  */
 function valserv_analytics_activate(): void {
-    add_option( Valserv_Analytics_Settings::OPTION_NAME, Valserv_Analytics_Settings::get_default_settings(), '', false );
+	add_option( Valserv_Analytics_Settings::OPTION_NAME, Valserv_Analytics_Settings::get_default_settings(), '', false );
 }
 
 register_activation_hook( __FILE__, 'valserv_analytics_activate' );
