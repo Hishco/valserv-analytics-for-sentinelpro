@@ -1,0 +1,19 @@
+# Composer
+/vendor/
+composer.lock
+composer.json
+
+# IDE
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Build artifacts
+/node_modules/
+/dist/
+*.log
